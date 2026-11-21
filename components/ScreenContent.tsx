@@ -1,27 +1,22 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { EditScreenInfo } from './EditScreenInfo';
-
 interface ScreenContentProps {
   title: string;
-  path: string;
-  children?: React.ReactNode;
 }
 
-export const ScreenContent: React.FC<ScreenContentProps> = ({ title, path, children }) => {
+export const ScreenContent: React.FC<ScreenContentProps> = ({ title }) => {
   return (
     <View className={styles.container}>
       <Text className={styles.title}>{title}</Text>
-      <View className={styles.separator} />
-      <EditScreenInfo path={path} />
-      {children}
     </View>
   );
 };
 
-const styles = {
-  container: `items-center flex-1 justify-center bg-white`,
-  separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
+//como pro tip para mantener el orden del cóodigo en lugar de escribir los estilos de tailwind
+//Para cada componente dentro de un return, creamos una variable styles que va a almacenar los estilos de tailwind
+//que se van a usar a lo largo del código, util tambien para reutilizar codigo
+const styles={
   title: `text-xl font-bold`,
-};
+  container: `flex-1 items-center justify-center bg-white padding-4 px-4`
+}
